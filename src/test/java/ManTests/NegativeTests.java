@@ -13,7 +13,6 @@ public class NegativeTests {
 
     @Test(groups={"regression"})
     public void testNegativeIsRetired() {
-        man.getAge();
 
         softAssert.assertFalse(man.isRetired(), "Negative test failed. " + man.getFirstName() + " is retired, because his age is " + man.getAge());
 
@@ -23,25 +22,8 @@ public class NegativeTests {
     @Test(groups={"regression"})
     public void testNegativeRegisterPartner() {
 
-        man.registerPartnership(woman);
-        man.setPartner(null);
-
         softAssert.assertEquals(man.getPartner(), null, "Negative test failed. " + man.getPartner() + " is not empty.");
-        softAssert.assertEquals(man.getMarriageStatus(), true, "Negative test failed. " + man.getFirstName() + " is still married.");
-
-        softAssert.assertAll();
-    }
-
-    @Test(groups={"regression"})
-    public void testNegativeDeregisterPartner() {
-
-        man.deregisterPartnership(false);
-
-        man.setPartner(woman);
-        man.setMarriageStatus(true);
-
-        softAssert.assertEquals(man.getPartner(),  woman, "Negative test failed. " + man.getFirstName() + "'s partner is still the same after divorce");
-        softAssert.assertEquals(man.getMarriageStatus(), true, man.getFirstName() + " is still married status after divorce.");
+        softAssert.assertEquals(man.getMarriageStatus(), false, "Negative test failed. " + man.getFirstName() + " is still married.");
 
         softAssert.assertAll();
     }

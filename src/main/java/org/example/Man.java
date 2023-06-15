@@ -32,8 +32,10 @@ public class Man extends Person {
 
     @Override
     public void deregisterPartnership(boolean returnToPreviousLastName) {
-        this.partner = null;
-        this.setMarriageStatus(false);
-        System.out.println("After divorce partner is: " + this.partner + ", Is married: " + this.isMarried);
+        if (!(partner == null)) {
+            this.partner = null;
+            this.setMarriageStatus(false);
+            System.out.println("After divorce partner is: " + this.partner + ", Is married: " + this.isMarried);
+        }
     }
 }

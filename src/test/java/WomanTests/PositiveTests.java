@@ -16,8 +16,6 @@ public class PositiveTests {
     @Test(groups={"regression"})
     public void testPositiveIsRetired() {
 
-       woman.getAge();
-
         softAssert.assertTrue(woman.isRetired(), woman.getFirstName() + " is not retired yet, because she did not reach 60 yet. She is " + woman.getAge());
         softAssert.assertAll();
     }

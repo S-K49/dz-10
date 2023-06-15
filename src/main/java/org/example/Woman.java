@@ -43,11 +43,13 @@ public class Woman extends Person {
 
     @Override
     public void registerPartnership(Person partner) {
-        setPartner(partner);
-        getPartner().setPartner(this);
-        this.setLastName(partner.getLastName());
-        this.setMarriageStatus(true);
-        System.out.println("After marriage partner is: " + this.partner + ", Last name: " + this.lastName + ", Is married: " + this.isMarried);
+        if (!(partner == null)) {
+            setPartner(partner);
+            getPartner().setPartner(this);
+            this.setLastName(partner.getLastName());
+            this.setMarriageStatus(true);
+            System.out.println("After marriage partner is: " + this.partner + ", Last name: " + this.lastName + ", Is married: " + this.isMarried);
+        }
     }
 
     @Override

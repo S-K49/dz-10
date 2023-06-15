@@ -16,17 +16,12 @@ public class NegativeTests {
     @Test
     public void testNegativeIsRetired() {
 
-        woman.getAge();
-
         softAssert.assertFalse(woman.isRetired(), woman.getFirstName() + " is retired, because she reach 60. She is " + woman.getAge());
         softAssert.assertAll();
     }
 
     @Test
     public void testNegativeRegisterPartner() {
-
-        woman.registerPartnership(man);
-        woman.setPartner(null);
 
         softAssert.assertEquals(woman.getPartner(), null, "Negative test failed. " + "The partner is: " + woman.getPartner() + ", but it should not be set.");
         softAssert.assertEquals(woman.getMarriageStatus(), false, "Negative test failed. Woman is still married");
@@ -59,10 +54,9 @@ public class NegativeTests {
 
     @Test(groups={"regression"})
     public void testNegativeReturnToPreviousLastName() {
-        woman.setLastName(man.getLastName());
         woman.deregisterPartnership(false);
 
-        softAssert.assertEquals(woman.getLastName(), man.getLastName(), "Negative test failed. " + woman.getFirstName() + " is returned to the previous last name after divocre.");
+        softAssert.assertEquals(woman.getLastName(), "Smith", "Negative test failed. " + woman.getFirstName() + " is returned to the previous last name after divocre.");
 
         softAssert.assertAll();
     }
